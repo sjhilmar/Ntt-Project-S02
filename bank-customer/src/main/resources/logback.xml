@@ -1,0 +1,28 @@
+<configuration>
+
+    <!-- Appender para la consola -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender para el archivo -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/app.log</file> <!-- Ruta del archivo de log -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Configuración de loggers -->
+    <logger name="org.springframework.web" level="DEBUG"/>
+    <logger name="reactor.netty" level="INFO"/>
+
+    <!-- Logger raíz -->
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>
