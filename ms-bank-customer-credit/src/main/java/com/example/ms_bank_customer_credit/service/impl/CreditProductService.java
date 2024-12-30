@@ -1,9 +1,9 @@
 package com.example.ms_bank_customer_credit.service.impl;
 
 import com.example.ms_bank_customer_credit.model.Customer;
-import com.example.ms_bank_customer_credit.model.CustomerType;
+import com.example.ms_bank_customer_credit.model.enums.CustomerType;
 import com.example.ms_bank_customer_credit.model.CreditProduct;
-import com.example.ms_bank_customer_credit.model.CreditType;
+import com.example.ms_bank_customer_credit.model.enums.CreditType;
 import com.example.ms_bank_customer_credit.repository.CreditProductRepository;
 import com.example.ms_bank_customer_credit.service.ICreditProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
 import java.math.BigDecimal;
 
 @Service
@@ -95,10 +96,21 @@ public class CreditProductService implements ICreditProductService {
                 .flatMap(existingProduct -> {
                     existingProduct.setAccountHolderName(creditProduct.getAccountHolderName());
                     existingProduct.setCreditAmount(creditProduct.getCreditAmount());
+                    existingProduct.setCreditBalance(creditProduct.getCreditBalance());
                     existingProduct.setAuthorizedSigners(creditProduct.getAuthorizedSigners());
                     existingProduct.setHolders(creditProduct.getHolders());
                     existingProduct.setCreditType(creditProduct.getCreditType());
                     existingProduct.setCustomerType(creditProduct.getCustomerType());
+                    return creditProductRepository.save(existingProduct);
+                });
+    }
+
+    @Override
+    public Mono<CreditProduct> updateCreditBalance(String id, BigDecimal newBalance) {
+        return creditProductRepository.findById(id)
+                .switchIfEmpty(Mono.error(new RuntimeException("Crédito/Tarjeta de crédito no encontrado")))
+                .flatMap(existingProduct -> {
+                    existingProduct.setCreditBalance(newBalance);
                     return creditProductRepository.save(existingProduct);
                 });
     }

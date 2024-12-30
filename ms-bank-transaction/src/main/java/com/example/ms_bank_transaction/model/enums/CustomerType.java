@@ -1,4 +1,4 @@
-package com.example.ms_bank_customer_credit.model;
+package com.example.ms_bank_transaction.model.enums;
 
 public enum CustomerType {
     PERSONAL,

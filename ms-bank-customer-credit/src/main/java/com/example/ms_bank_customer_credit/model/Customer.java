@@ -1,5 +1,6 @@
 package com.example.ms_bank_customer_credit.model;
 
+import com.example.ms_bank_customer_credit.model.enums.CustomerType;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;

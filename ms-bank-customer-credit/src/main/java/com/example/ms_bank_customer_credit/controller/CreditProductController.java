@@ -1,5 +1,6 @@
 package com.example.ms_bank_customer_credit.controller;
 
+import com.example.ms_bank_customer_credit.model.BalanceUpdateRequest;
 import com.example.ms_bank_customer_credit.model.CreditProduct;
 import com.example.ms_bank_customer_credit.service.ICreditProductService;
 import jakarta.validation.Valid;
@@ -21,43 +22,53 @@ public class CreditProductController {
 
      @GetMapping
     public Flux<CreditProduct> getAllCreditProducts() {
-         log.info("Consultando todos los creditos");
-         log.debug("Consultando todos los creditos",new RuntimeException());
+        log.info("Consultando todos los creditos");
         return creditProductService.getAllCreditProducts();
     }
 
     @GetMapping("/{id}")
     public Mono<CreditProduct> getCreditProductById(@PathVariable String id) {
          log.info("Consultando credito con id {}", id);
-         log.debug("Consultando credito con id {}", id, new RuntimeException());
-        return creditProductService.getCreditProductById(id);
+         return creditProductService.getCreditProductById(id)
+                 .doOnError(e -> log.error("Error al consultar el credito con id: {}", id, e))
+                 .onErrorResume(e -> Mono.error(new RuntimeException("Error al consultar el credito con id: " + id)));
     }
     @PostMapping
     public Mono<ResponseEntity<CreditProduct>> createCreditProduct(@Valid @RequestBody CreditProduct creditProduct) {
-//         log.info("Creando credito {}", creditProduct);
-//         log.debug("Creando credito {}", creditProduct, new RuntimeException());
+         log.info("Creando credito {}", creditProduct);
          return creditProductService.createCreditProduct(creditProduct)
                  .map(createdCreditProduct -> ResponseEntity.status(HttpStatus.CREATED).body(createdCreditProduct))
+                    .doOnError(e -> log.error("Error al crear el credito {}", creditProduct, e))
                  .onErrorResume(e -> Mono.just(ResponseEntity.status(HttpStatus.CONFLICT).build()));
 
     }
     @PutMapping("/{id}")
     public Mono<ResponseEntity<CreditProduct>> updateCreditProduct(@PathVariable String id, @Valid @RequestBody CreditProduct creditProduct) {
         log.info("Actualizando credito {}", creditProduct);
-        log.debug("Actualizando credito {}", creditProduct, new RuntimeException());
-         return creditProductService.updateCreditProduct(id, creditProduct)
+        return creditProductService.updateCreditProduct(id, creditProduct)
                 .map(ResponseEntity::ok)
+                .doOnError(e -> log.error("Error al actualizar el credito con id: {}", id, e))
                 .onErrorResume(e -> Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND).build()));
+    }
+
+    @PatchMapping("/balance/{id}")
+    public Mono<ResponseEntity<CreditProduct>> updateBalance(@PathVariable String id , @Valid @RequestBody BalanceUpdateRequest balanceUpdateRequest) {
+        log.info("Actualizando balance de credito con id {}", id);
+
+        return creditProductService.updateCreditBalance(id, balanceUpdateRequest.getCreditBalance())
+                .map(ResponseEntity::ok)
+                .doOnError(e -> log.error("Error al actualizar el balance del credito con id: {}", id, e))
+                .onErrorResume(RuntimeException.class, e -> Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND).build()))
+                .onErrorResume(e -> Mono.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()));
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Mono<Void> deleteCreditProductById(@PathVariable String id) {
          log.info("Eliminando credito con id {}", id);
-         log.debug("Eliminando credito con id {}", id, new RuntimeException());
-        return creditProductService.deleteCreditProductById(id);
+        return creditProductService.deleteCreditProductById(id)
+                .doOnError(e -> log.error("Error al eliminar el credito con id: {}", id, e))
+                .onErrorResume(e -> Mono.error(new RuntimeException("Error al eliminar el credito con id: " + id)));
     }
-
-
 
 }

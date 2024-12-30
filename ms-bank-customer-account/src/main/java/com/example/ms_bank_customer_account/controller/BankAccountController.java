@@ -1,6 +1,7 @@
 package com.example.ms_bank_customer_account.controller;
 
 import com.example.ms_bank_customer_account.dto.ErrorResponse;
+import com.example.ms_bank_customer_account.model.BalanceUpdateRequest;
 import com.example.ms_bank_customer_account.model.BankAccount;
 import com.example.ms_bank_customer_account.service.IBankAccountService;
 import com.example.ms_bank_customer_account.util.CustomException;
@@ -58,6 +59,16 @@ public class BankAccountController {
         return service.updateBankAccount(id, account)
                 .map(updatedAccount-> ResponseEntity.status(HttpStatus.OK).body(updatedAccount))
                 .doOnError(e->log.error("Error al actualizar la cuenta bancaria con id: " + id, e))
+                .onErrorResume(CustomException.class, Mono::error)
+                .onErrorResume(e-> Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND).build()));
+    }
+
+    @PatchMapping("/balance/{id}")
+    public Mono<ResponseEntity<BankAccount>> updateBalance(@PathVariable String id, @Valid @RequestBody BalanceUpdateRequest balanceUpdateRequest){
+        log.info("Actualizando balance de la cuenta bancaria con id: " + id);
+        return service.updateBalance(id, balanceUpdateRequest.getBalance())
+                .map(updatedAccount-> ResponseEntity.status(HttpStatus.OK).body(updatedAccount))
+                .doOnError(e->log.error("Error al actualizar el balance de la cuenta bancaria con id: " + id, e))
                 .onErrorResume(CustomException.class, Mono::error)
                 .onErrorResume(e-> Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND).build()));
     }

@@ -1,22 +1,16 @@
-package com.example.ms_bank_customer_account.model;
+package com.example.ms_bank_transaction.model;
 
-import com.example.ms_bank_customer_account.model.enums.AccountType;
-import com.example.ms_bank_customer_account.model.enums.CustomerType;
+import com.example.ms_bank_transaction.model.enums.CustomerType;
+import com.example.ms_bank_transaction.model.enums.ProductType;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Document(collection = "bankAccounts")
 public class BankAccount {
     @Id
     private String id;
@@ -37,7 +31,7 @@ public class BankAccount {
     private List<String> holders;
 
     @NotNull(message = "Se requiere tipo de cuenta")
-    private AccountType accountType;
+    private ProductType accountType;
 
     @NotNull(message = "Se requiere tipo de cliente")
     private CustomerType customerType;
@@ -47,6 +41,4 @@ public class BankAccount {
 
     @NotNull(message = "Se requiere indicar si tiene tarjeta de crédito")
     private boolean hasCreditCard;
-
 }
-

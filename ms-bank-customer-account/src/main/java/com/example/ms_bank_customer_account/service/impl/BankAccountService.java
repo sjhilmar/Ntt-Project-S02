@@ -1,9 +1,9 @@
 package com.example.ms_bank_customer_account.service.impl;
 
-import com.example.ms_bank_customer_account.model.AccountType;
+import com.example.ms_bank_customer_account.model.enums.AccountType;
 import com.example.ms_bank_customer_account.model.BankAccount;
 import com.example.ms_bank_customer_account.model.Customer;
-import com.example.ms_bank_customer_account.model.CustomerType;
+import com.example.ms_bank_customer_account.model.enums.CustomerType;
 import com.example.ms_bank_customer_account.repository.BankAccountRepository;
 import com.example.ms_bank_customer_account.service.IBankAccountService;
 import com.example.ms_bank_customer_account.util.CustomException;
@@ -59,13 +59,13 @@ public class BankAccountService implements IBankAccountService {
                         return   bankAccountRepository.findBankAccountByCustomerId(bankAccount.getCustomerId())
                                 .collectList()
                                 .flatMap(accounts->{
-                                    long savingCount =accounts.stream().filter(account->account.getAccountType()==AccountType.AHORRO).count();
-                                    long checkingCount = accounts.stream().filter(account->account.getAccountType()==AccountType.CORRIENTE).count();
+                                    long savingCount =accounts.stream().filter(account->account.getAccountType()== AccountType.AHORRO).count();
+                                    long checkingCount = accounts.stream().filter(account->account.getAccountType()== AccountType.CORRIENTE).count();
 
-                                    if (bankAccount.getAccountType()==AccountType.AHORRO && savingCount >0){
+                                    if (bankAccount.getAccountType()== AccountType.AHORRO && savingCount >0){
                                         return Mono.error(new CustomException("El cliente personal solo puede tener una cuenta de ahorros"));
                                     }
-                                    if (bankAccount.getAccountType()==AccountType.CORRIENTE && checkingCount >0){
+                                    if (bankAccount.getAccountType()== AccountType.CORRIENTE && checkingCount >0){
                                         return Mono.error(new CustomException("El cliente personal solo puede tener una cuenta corriente"));
                                     }
                                     if (bankAccount.getCustomerType() ==CustomerType.PERSONALVIP){
@@ -80,7 +80,7 @@ public class BankAccountService implements IBankAccountService {
                                     return bankAccountRepository.save(bankAccount);
                                 });
                     } else if (bankAccount.getCustomerType()== CustomerType.EMPRESARIAL || bankAccount.getCustomerType()== CustomerType.EMPRESARIALMYPE){
-                        if (bankAccount.getAccountType()==AccountType.AHORRO || bankAccount.getAccountType()==AccountType.PLAZOFIJO){
+                        if (bankAccount.getAccountType()== AccountType.AHORRO || bankAccount.getAccountType()== AccountType.PLAZOFIJO){
                             return Mono.error(new CustomException("El cliente empresarial no puede tener cuentas de ahorro ni de plazo fijo"));
                         }
                         if (bankAccount.getHolders() == null || bankAccount.getHolders().isEmpty()){
@@ -111,8 +111,21 @@ public class BankAccountService implements IBankAccountService {
                     existingAccount.setHolders(bankAccount.getHolders());
                     existingAccount.setAccountType(bankAccount.getAccountType());
                     existingAccount.setCustomerType(bankAccount.getCustomerType());
+                    existingAccount.setNumberMaxTransactions(bankAccount.getNumberMaxTransactions());
+                    existingAccount.setHasCreditCard(bankAccount.isHasCreditCard());
                     return bankAccountRepository.save(existingAccount);
                 });
+    }
+
+    @Override
+    public Mono<BankAccount> updateBalance(String id, BigDecimal newBalance) {
+        return bankAccountRepository.findById(id)
+                .switchIfEmpty(Mono.error(new CustomException("Cuenta bancaria no encontrada")))
+                .flatMap(existingAccount -> {
+                    existingAccount.setBalance(newBalance);
+                    return bankAccountRepository.save(existingAccount);
+                });
+
     }
 
     @Override

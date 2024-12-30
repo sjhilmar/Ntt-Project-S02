@@ -1,18 +1,12 @@
-package com.example.ms_bank_customer_account.model;
+package com.example.ms_bank_transaction.model;
 
-import com.example.ms_bank_customer_account.model.enums.CustomerType;
+import com.example.ms_bank_transaction.model.enums.CustomerType;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Document(collection = "customers")
 public class Customer {
     @Id
     private String id;

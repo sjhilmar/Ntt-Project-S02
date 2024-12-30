@@ -1,20 +1,17 @@
-package com.example.ms_bank_customer_credit.model;
+package com.example.ms_bank_transaction.model;
 
-import com.example.ms_bank_customer_credit.model.enums.CreditType;
-import com.example.ms_bank_customer_credit.model.enums.CustomerType;
+import com.example.ms_bank_transaction.model.enums.CustomerType;
+import com.example.ms_bank_transaction.model.enums.ProductType;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @Data
-@Document(collection = "creditProduct")
 public class CreditProduct {
-
     @Id
     private String id;
 
@@ -34,7 +31,7 @@ public class CreditProduct {
     private List<String> holders; // For business credits
 
     @NotNull(message = "Se requiere tipo de crédito")
-    private CreditType creditType;
+    private ProductType creditType;
 
     @NotNull(message = "Se requiere tipo de cliente")
     private CustomerType customerType;
@@ -42,4 +39,6 @@ public class CreditProduct {
     @NotNull(message = "Se requiere el numero maximo de transacciones")
     private int numberMaxTransactions;
 
+    @NotNull(message = "Se requiere indicar si tiene tarjeta de crédito")
+    private boolean hasCreditCard;
 }
