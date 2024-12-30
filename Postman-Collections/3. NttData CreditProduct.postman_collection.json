@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "641502e9-a782-4fb9-9c5d-41b1894ef18e",
+		"name": "3. NttData CreditProduct",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20064556"
+	},
+	"item": [
+		{
+			"name": "Find All Credits",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/api/v1/credit-product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"v1",
+						"credit-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Credit by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/api/v1/credit-product/6768f4214b30044bef0199c6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"v1",
+						"credit-product",
+						"6768f4214b30044bef0199c6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Credit Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \r\n  \"customerId\": \"6768834f149a361b1f471972\",\r\n  \"accountHolderName\": \"4444-44444-8888-8888\",\r\n  \"creditAmount\": 1500,\r\n  \"creditBalance\": 0,\r\n  \"authorizedSigners\": [\r\n    \r\n  ],\r\n  \"holders\": [\r\n    \"Jhamile\"\r\n  ],\r\n  \"creditType\": \"EMPRESARIAL\",\r\n  \"customerType\": \"EMPRESARIAL\",\r\n  \"numberMaxTransactions\": 15,\r\n  \"hasCreditCard\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/v1/credit-product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"v1",
+						"credit-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Credit Products",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"customerId\": \"588\",\r\n        \"accountHolderName\": \"Jhamile\",\r\n        \"creditAmount\": 1500.0,\r\n        \"authorizedSigners\": [],\r\n        \"holders\": [],\r\n        \"creditType\": \"PERSONAL\",\r\n        \"clientType\": \"PERSONAL\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/v1/credit-product/6768f46a4b30044bef0199c7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"v1",
+						"credit-product",
+						"6768f46a4b30044bef0199c7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Credit",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/api/v1/credit-product/6768f4984b30044bef0199c8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"v1",
+						"credit-product",
+						"6768f4984b30044bef0199c8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateBalance",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"creditBalance\": 1500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/v1/credit-product/balance/67730a49facf5108da5bb72c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"v1",
+						"credit-product",
+						"balance",
+						"67730a49facf5108da5bb72c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

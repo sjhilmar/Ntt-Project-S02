@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "9bcb3b1b-c2b7-4ab6-a2df-cfee69850dab",
+		"name": "2. NttData Accounts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20064556"
+	},
+	"item": [
+		{
+			"name": "Find All Account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1/bank-account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"bank-account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Account by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1/bank-account/6772049ed841a45110795eef",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"bank-account",
+						"6772049ed841a45110795eef"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Accounts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": \"676884033520112bcf078c6b\",\r\n    \"accountNumber\": \"3333-4444-4444-4444\",\r\n    \"accountHolderName\": \"Antonia Valverde\",\r\n    \"balance\": 2500.75,\r\n    \"authorizedSigners\": [],\r\n    \"holders\": [],\r\n    \"productType\": \"AHORRO\",\r\n    \"customerType\": \"PERSONAL\",\r\n    \"numberMaxTransactions\": 10,\r\n    \"hasCreditCard\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1/bank-account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"bank-account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Account",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"customerId\": \"6768834f149a361b1f471972\",\r\n    \"accountNumber\": \"4444-4444-4444-4444\",\r\n    \"accountHolderName\": \"Jhamile\",\r\n    \"balance\": 1800.5,\r\n    \"authorizedSigners\": [\r\n        \"Jhamile\",\r\n        \"Rosita\"\r\n    ],\r\n    \"holders\": [\r\n        \"Sergio Jhilmar\"\r\n    ],\r\n    \"accountType\": \"CORRIENTE\",\r\n    \"customerType\": \"EMPRESARIAL\",\r\n    \"numberMaxTransactions\": 15,\r\n    \"hasCreditCard\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1/bank-account/6771c43be6541519405f6504",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"bank-account",
+						"6771c43be6541519405f6504"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Account",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1/bank-account/6768d062b1e6294f4e5870f5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"bank-account",
+						"6768d062b1e6294f4e5870f5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Balance",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"balance\": 2500.75\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1/bank-account/balance/6768f12cc823fa6067b39334",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"bank-account",
+						"balance",
+						"6768f12cc823fa6067b39334"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

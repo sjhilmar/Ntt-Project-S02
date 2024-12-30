@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "9993eb15-b351-4d59-b394-c255727d8e97",
+		"name": "1. NttData Customers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20064556"
+	},
+	"item": [
+		{
+			"name": "Find All Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"documentNumber\": \"75369541\",\r\n    \"companyName\": \"Sergio Jhilmar\",\r\n    \"name\": \"Sergio Jhilmar\",\r\n    \"email\": \"jmr.code@gmail.com\",\r\n    \"phoneNumber\": \"951258654\",\r\n    \"customerType\": \"Personal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Customer by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1/customers/676884033520112bcf078c6b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"customers",
+						"676884033520112bcf078c6b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a customer by Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": \"6768834f149a361b1f471972\",\r\n        \"documentNumber\": \"73474412\",\r\n        \"companyName\": \"Auditores XD S.A.C\",\r\n        \"name\": \"Jhamile\",\r\n        \"email\": \"jhami.code@gmail.com\",\r\n        \"phoneNumber\": \"915445685\",\r\n        \"customerType\": \"Empresarial\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/customers/6768834f149a361b1f471972",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"customers",
+						"6768834f149a361b1f471972"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a customer by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1/customers/6768835d149a361b1f471973",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"customers",
+						"6768835d149a361b1f471973"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
