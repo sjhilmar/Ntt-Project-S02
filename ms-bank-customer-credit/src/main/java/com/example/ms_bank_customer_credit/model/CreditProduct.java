@@ -33,4 +33,10 @@ public class CreditProduct {
 
     @NotNull(message = "Se requiere tipo de cliente")
     private CustomerType customerType;
+
+    @NotNull(message = "Se requiere el numero maximo de transacciones")
+    private int numberMaxTransactions;
+
+    @NotNull(message = "Se requiere indicar si tiene tarjeta de crédito")
+    private boolean hasCreditCard;
 }

@@ -41,7 +41,7 @@ public class CustomerController {
         return customerService.getCustomerByDocumentNumber(documentNumber);
     }
 
-    @Operation(summary = "Creación de nuevos clientes")
+    @Operation(summary = "Crear nuevos clientes")
     @PostMapping
     public Mono<ResponseEntity<Customer>> createCustomer(@RequestBody Customer customer){
 
@@ -54,6 +54,7 @@ public class CustomerController {
                 });
     }
 
+    @Operation(summary = "Actualizar clientes")
     @PutMapping("/{id}")
     public Mono<ResponseEntity<Customer>> updateCustomer(@PathVariable String id,@RequestBody Customer customer){
         log.info("Actualiando cliente por Id: {}",id);
@@ -65,6 +66,7 @@ public class CustomerController {
                 });
     }
 
+    @Operation(summary = "Eliminar clientes")
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Mono<Void> deleteCustomer(@PathVariable String id){

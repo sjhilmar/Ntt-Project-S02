@@ -1,5 +1,6 @@
 package com.example.ms_bank_customer_credit.service.impl;
 
+import com.example.ms_bank_customer_credit.model.Customer;
 import com.example.ms_bank_customer_credit.model.CustomerType;
 import com.example.ms_bank_customer_credit.model.CreditProduct;
 import com.example.ms_bank_customer_credit.model.CreditType;
@@ -7,37 +8,54 @@ import com.example.ms_bank_customer_credit.repository.CreditProductRepository;
 import com.example.ms_bank_customer_credit.service.ICreditProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import java.math.BigDecimal;
 
 @Service
 public class CreditProductService implements ICreditProductService {
-    @Autowired
-    private CreditProductRepository creditProductRepository;
+  @Autowired
+  private CreditProductRepository creditProductRepository;
 
-    @Override
-    public Flux<CreditProduct> getAllCreditProducts() {
-        return creditProductRepository.findAll();
-    }
+  @Autowired
+  private WebClient.Builder webClientBuilder;
 
-    @Override
-    public Mono<CreditProduct> getCreditProductById(String id) {
-        return creditProductRepository.findById(id)
-                .switchIfEmpty(Mono.error(new RuntimeException("Credit Product not found")));
-    }
+  @Override
+  public Flux<CreditProduct> getAllCreditProducts() {
+    return creditProductRepository.findAll();
+  }
 
-    @Override
-    public Flux<CreditProduct> findCreditProductByCustomerId(String customerId) {
-        return creditProductRepository.findCreditProductByCustomerId(customerId);
-    }
+  @Override
+  public Mono<CreditProduct> getCreditProductById(String id) {
+    return creditProductRepository.findById(id)
+            .switchIfEmpty(Mono.error(new RuntimeException("No se encontró tarjeta de crédito con el id: " + id)));
+  }
 
-    @Override
-    public Mono<CreditProduct> createCreditProduct(CreditProduct creditProduct) {
+  @Override
+  public Flux<CreditProduct> findCreditProductByCustomerId(String customerId) {
+    return creditProductRepository.findCreditProductByCustomerId(customerId);
+  }
 
-        return creditProductRepository.findCreditProductByCustomerId(creditProduct.getCustomerId())
+  @Override
+  public Mono<CreditProduct> createCreditProduct(CreditProduct creditProduct) {
+
+    return webClientBuilder.build()
+              .get()
+              .uri("http://localhost:8081/v1/customers/{id}", creditProduct.getCustomerId())
+              .retrieve()
+              .bodyToMono(Customer.class)
+              .flatMap(customer -> {
+                  if (customer == null) {
+                      return Mono.error(new RuntimeException("Cliente no encontrado"));
+                  }
+                creditProduct.setCustomerType(customer.getCustomerType());
+                creditProduct.setAccountHolderName(customer.getName());
+
+    return creditProductRepository.findCreditProductByCustomerId(creditProduct.getCustomerId())
                 .collectList()
                 .flatMap(existingCredits->{
-                   if (creditProduct.getCustomerType()== CustomerType.PERSONAL){
+                    if (creditProduct.getCustomerType()== CustomerType.PERSONAL || creditProduct.getCustomerType() == CustomerType.PERSONALVIP){
                        long personalCreditCount = existingCredits.stream().filter(credit -> credit.getCustomerType()== CustomerType.PERSONAL).count();
                        long tarjetaCreditoCount = existingCredits.stream().filter(credit-> credit.getCreditType() ==CreditType.TARJETACREDITO).count();
 
@@ -50,9 +68,10 @@ public class CreditProductService implements ICreditProductService {
                        if(creditProduct.getCreditType() ==CreditType.EMPRESARIAL){
                            return Mono.error(new RuntimeException("El cliente personal no puede tener un crédito empresarial"));
                        }
+
                        return creditProductRepository.save(creditProduct);
 
-                   }else if (creditProduct.getCustomerType()== CustomerType.EMPRESARIAL){
+                   }else if (creditProduct.getCustomerType()== CustomerType.EMPRESARIAL || creditProduct.getCustomerType() == CustomerType.EMPRESARIALMYPE){
                        if (creditProduct.getCreditType() ==CreditType.PERSONAL){
                            return Mono.error(new RuntimeException("El cliente empresarial no puede tener un crédito personal"));
                        }
@@ -65,6 +84,8 @@ public class CreditProductService implements ICreditProductService {
                    }
 
                 });
+
+              });
     }
 
     @Override

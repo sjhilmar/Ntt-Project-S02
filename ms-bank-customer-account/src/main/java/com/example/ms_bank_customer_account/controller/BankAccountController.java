@@ -1,8 +1,9 @@
 package com.example.ms_bank_customer_account.controller;
 
+import com.example.ms_bank_customer_account.dto.ErrorResponse;
 import com.example.ms_bank_customer_account.model.BankAccount;
 import com.example.ms_bank_customer_account.service.IBankAccountService;
-import com.example.ms_bank_customer_account.service.impl.BankAccountService;
+import com.example.ms_bank_customer_account.util.CustomException;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
@@ -12,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.time.LocalDateTime;
 
 @Log4j2
 @RestController
@@ -25,46 +28,47 @@ public class BankAccountController {
     @GetMapping
     public Flux<BankAccount> getAllBankAccounts(){
         log.info("Obteniendo todas las cuentas bancarias");
-        log.debug(HttpStatus.OK.toString( ));
-        return service.getAllBankAccounts();
+        return service.getAllBankAccounts()
+                .doOnError(e-> log.error("Error al obtener todas las cuentas bancarias",e));
     }
 
     @GetMapping("/{id}")
-    public Mono<BankAccount> getAccountById(@PathVariable String id) {
+    public Mono<ResponseEntity<BankAccount>> getAccountById(@PathVariable String id) {
         log.info("Obteniendo cuenta bancaria con id: " + id);
-        log.debug(HttpStatus.OK.toString( ));
-        return service.getAccountById(id);
+        return service.getAccountById(id)
+                .map(ResponseEntity::ok)
+                .doOnError(e->log.error("Error al obtener la cuenta bancaria con id: " + id, e))
+                .onErrorResume(e->Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND).build()));
+
     }
 
     @PostMapping
-
     public Mono<ResponseEntity<BankAccount>> createAccount(@Valid @RequestBody BankAccount account) {
-        log.info("Creando cuenta bancaria");
-        log.debug(account.toString());
+        log.info("Creando cuenta bancaria/n{}", account.toString());
         return service.createBankAccount(account)
                 .map(createdCustomer-> ResponseEntity.status(HttpStatus.CREATED).body(createdCustomer))
-                .onErrorResume(e-> {
-                   return Mono.just(ResponseEntity.status(HttpStatus.CONFLICT).body(null));
-                });
-
+                .doOnError(e-> log.error("Error al crear la cuenta bancaria\n{}", account,e))
+                .onErrorResume(CustomException.class, e-> Mono.just(ResponseEntity.status(HttpStatus.CONFLICT).body(null)))
+                .onErrorResume(e-> Mono.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).<BankAccount>build()));
     }
+
     @PutMapping("/{id}")
     public Mono<ResponseEntity<BankAccount>> updateAccount(@PathVariable String id, @Valid @RequestBody BankAccount account) {
         log.info("Actualizando cuenta bancaria con id: " + id);
-        log.debug(account.toString());
         return service.updateBankAccount(id, account)
                 .map(updatedAccount-> ResponseEntity.status(HttpStatus.OK).body(updatedAccount))
-                .onErrorResume(e->{
-                    return Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
-                });
+                .doOnError(e->log.error("Error al actualizar la cuenta bancaria con id: " + id, e))
+                .onErrorResume(CustomException.class, Mono::error)
+                .onErrorResume(e-> Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND).build()));
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Mono<Void> deleteAccount(@PathVariable String id) {
         log.info("Eliminando cuenta bancaria con id: " + id);
-        log.debug(HttpStatus.OK.toString( ) + id);
-        return service.deleteBankAccount(id);
+        return service.deleteBankAccount(id)
+                .doOnError(e-> log.error("Error al eliminar la cuenta bancaria con id: {}", id, e))
+                .onErrorResume(e->Mono.error(new CustomException("Error al eliminar la cuenta bancaria con id: " + id)));
     }
 
 }

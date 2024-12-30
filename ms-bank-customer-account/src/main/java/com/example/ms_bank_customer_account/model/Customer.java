@@ -1,4 +1,4 @@
-package com.example.bank_customer.domain;
+package com.example.ms_bank_customer_account.model;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
@@ -21,10 +21,7 @@ public class Customer {
 
     @NotEmpty(message = "Se requiere Nombre del titular")
     private String name;
-    @NotEmpty(message = "Se requiere email")
     private String email;
-
-    @NotEmpty(message = "Se requiere número de teléfono")
     private String phoneNumber;
 
     @NotEmpty(message = "Se requiere Tipo de cliente")

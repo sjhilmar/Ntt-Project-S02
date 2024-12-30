@@ -2,7 +2,9 @@ package com.example.ms_bank_customer_account.model;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -10,6 +12,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Document(collection = "bankAccounts")
 public class BankAccount {
     @Id
@@ -35,6 +39,12 @@ public class BankAccount {
 
     @NotNull(message = "Se requiere tipo de cliente")
     private CustomerType customerType;
+
+    @NotNull(message = "Se requiere el numero maximo de transacciones")
+    private int numberMaxTransactions;
+
+    @NotNull(message = "Se requiere indicar si tiene tarjeta de crédito")
+    private boolean hasCreditCard;
 
 }
 

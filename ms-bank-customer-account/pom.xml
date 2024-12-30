@@ -91,9 +91,63 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 	</dependencies>
+	<!--Reporte CheckStyle-->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.1.2</version>
+				<configuration>
+					<configLocation>checkstyle.xml</configLocation>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+	<!--Reporte CheckStyle-->
 
 	<build>
+		<!--Jacoco-->
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>0.8.8</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<!--Jacoco-->
 		<plugins>
+			<!--Jacoco-->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<!--Exclusiones para reporte de cobertura-->
+				<configuration>
+					<excludes>
+						<exclude>com/example/ms_bank_customer_account/MsBankCustomerAccountApplication.class</exclude>
+						<exclude>com/example/ms_bank_customer_account/util/CustomException.class</exclude>
+						<exclude>com/example/ms_bank_customer_account/config/OpenApiConfig.class</exclude>
+					</excludes>
+				</configuration>
+				<!--Exclusiones para reporte de cobertura-->
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!--jacoco-->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
