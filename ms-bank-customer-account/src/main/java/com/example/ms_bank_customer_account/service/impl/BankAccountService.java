@@ -1,5 +1,6 @@
 package com.example.ms_bank_customer_account.service.impl;
 
+import com.example.ms_bank_customer_account.model.CreditProduct;
 import com.example.ms_bank_customer_account.model.enums.AccountType;
 import com.example.ms_bank_customer_account.model.BankAccount;
 import com.example.ms_bank_customer_account.model.Customer;
@@ -14,6 +15,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Service
 public class BankAccountService implements IBankAccountService {
@@ -42,6 +44,7 @@ public class BankAccountService implements IBankAccountService {
 
     @Override
     public Mono<BankAccount> createBankAccount(BankAccount bankAccount) {
+
         return webClientBuilder.build()
                 .get()
                 .uri("http://localhost:8081/v1/customers/{id}", bankAccount.getCustomerId())
@@ -54,6 +57,13 @@ public class BankAccountService implements IBankAccountService {
 
                     bankAccount.setCustomerType(customer.getCustomerType());
                     bankAccount.setAccountHolderName(customer.getName());
+
+                    return validateCreditProduct(bankAccount.getCustomerId())
+                            .flatMap(valid -> {
+                                if (!valid) {
+                                    return Mono.error(new CustomException("El cliente no tiene ningún crédito o tarjeta de crédito"));
+                                }
+                                bankAccount.setHasCreditCard(true);
 
                     if (bankAccount.getCustomerType() == CustomerType.PERSONAL || bankAccount.getCustomerType() == CustomerType.PERSONALVIP){
                         return   bankAccountRepository.findBankAccountByCustomerId(bankAccount.getCustomerId())
@@ -96,7 +106,18 @@ public class BankAccountService implements IBankAccountService {
                     return Mono.error(new CustomException("Tipo de Cliente no valido"));
 
                 });
+        });
 
+    }
+
+    private Mono<Boolean>validateCreditProduct(String customerId){
+        return webClientBuilder.build()
+                .get()
+                .uri("http://localhost:8083/api/v1/credit-product/customer/{CustomerId}", customerId)
+                .retrieve()
+                .bodyToFlux(CreditProduct.class)
+                .collectList()
+                .map(creditProducts -> !creditProducts.isEmpty());
     }
 
     @Override

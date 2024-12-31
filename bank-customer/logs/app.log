@@ -12948,3 +12948,349 @@ java.lang.NoSuchMethodError: 'void org.springframework.web.method.ControllerAdvi
 	at java.base/java.lang.Thread.run(Thread.java:842)
 2024-12-30 18:06:39 - Commencing graceful shutdown. Waiting for active requests to complete
 2024-12-30 18:06:39 - Graceful shutdown complete
+2024-12-31 11:41:09 - Starting BankCustomerApplication using Java 17.0.12 with PID 19632 (C:\Ntt Data\Semana 2\Proyecto\Ntt-Project-S02\bank-customer\target\classes started by JMR CODE in C:\Ntt Data\Semana 2\Proyecto\Ntt-Project-S02\bank-customer)
+2024-12-31 11:41:09 - No active profile set, falling back to 1 default profile: "default"
+2024-12-31 11:41:09 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-31 11:41:09 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-31 11:41:10 - Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2024-12-31 11:41:10 - Finished Spring Data repository scanning in 157 ms. Found 1 Reactive MongoDB repository interface.
+2024-12-31 11:41:11 - MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.2.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/17.0.12+8-LTS-286"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=NettyTransportSettings{eventLoopGroup=io.netty.channel.nio.NioEventLoopGroup@5869e179, socketChannelClass=null, allocator=null, sslContext=null}, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@25078a17], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@5fc389a5, com.mongodb.Jep395RecordCodecProvider@7a20513, com.mongodb.KotlinCodecProvider@10d74eb7]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@9992988], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2024-12-31 11:41:12 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=62838400, minRoundTripTimeNanos=0}
+2024-12-31 11:41:12 - LiveReload server is running on port 35729
+2024-12-31 11:41:12 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2024-12-31 11:41:12 - 10 mappings in 'requestMappingHandlerMapping'
+2024-12-31 11:41:12 - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-12-31 11:41:12 - Exposing 1 endpoint beneath base path '/actuator'
+2024-12-31 11:41:12 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 2 @ExceptionHandler
+2024-12-31 11:41:12 - enableLoggingRequestDetails='false': form data and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-12-31 11:41:13 - Netty started on port 8081 (http)
+2024-12-31 11:41:13 - Started BankCustomerApplication in 4.374 seconds (process running for 6.346)
+2024-12-31 11:44:12 - [6c501ac7-1] HTTP GET "/v1/customers"
+2024-12-31 11:44:12 - [6c501ac7-1] Mapped to com.example.bank_customer.controller.CustomerController#getAllCustomer()
+2024-12-31 11:44:12 - Obteniendo todos los clientes
+2024-12-31 11:44:12 - [6c501ac7-1] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 11:44:12 - [6c501ac7-1] 0..N [com.example.bank_customer.domain.Customer]
+2024-12-31 11:44:13 - [6c501ac7-1] Encoding [Customer(id=6768834f149a361b1f471972, documentNumber=73474412, companyName=Auditores XD S.A.C, name= (truncated)...]
+2024-12-31 11:44:13 - [6c501ac7-1] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Sergio Jhilmar, name=Serg (truncated)...]
+2024-12-31 11:44:13 - [6c501ac7-1] Completed 200 OK
+2024-12-31 11:45:30 - [e6e61efa-2] HTTP POST "/v1/customers"
+2024-12-31 11:45:30 - [e6e61efa-2] Mapped to com.example.bank_customer.controller.CustomerController#createCustomer(Customer)
+2024-12-31 11:45:30 - [e6e61efa-2] Content-Type:application/json
+2024-12-31 11:45:30 - [e6e61efa-2] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 11:45:30 - [e6e61efa-2] Decoded [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 11:45:30 - Creando un nuevo cliente: Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante Alvarez, email=dante.code@gmail.com, phoneNumber=951258654, customerType=PERSONALVIP)
+2024-12-31 11:45:30 - [e6e61efa-2] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 11:45:30 - [e6e61efa-2] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 11:45:30 - [e6e61efa-2] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 11:45:30 - [e6e61efa-2] Completed 201 CREATED
+2024-12-31 11:45:34 - [e6e61efa-3] HTTP POST "/v1/customers"
+2024-12-31 11:45:34 - [e6e61efa-3] Mapped to com.example.bank_customer.controller.CustomerController#createCustomer(Customer)
+2024-12-31 11:45:34 - [e6e61efa-3] Content-Type:application/json
+2024-12-31 11:45:34 - [e6e61efa-3] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 11:45:34 - [e6e61efa-3] Could not resolve parameter [0] in public reactor.core.publisher.Mono<org.springframework.http.ResponseEntity<com.example.bank_customer.domain.Customer>> com.example.bank_customer.controller.CustomerController.createCustomer(com.example.bank_customer.domain.Customer): 400 BAD_REQUEST "Failed to read HTTP message"
+2024-12-31 11:45:34 - [e6e61efa-3] Resolved [ServerWebInputException: 400 BAD_REQUEST "Failed to read HTTP message"] for HTTP POST /v1/customers
+2024-12-31 11:45:34 - [e6e61efa-3] Encoding [{timestamp=Tue Dec 31 11:45:34 PET 2024, path=/v1/customers, status=400, error=Bad Request, requestI (truncated)...]
+2024-12-31 11:45:34 - [e6e61efa-3] Completed 400 BAD_REQUEST
+2024-12-31 11:45:41 - [e6e61efa-4] HTTP POST "/v1/customers"
+2024-12-31 11:45:41 - [e6e61efa-4] Mapped to com.example.bank_customer.controller.CustomerController#createCustomer(Customer)
+2024-12-31 11:45:41 - [e6e61efa-4] Content-Type:application/json
+2024-12-31 11:45:41 - [e6e61efa-4] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 11:45:41 - [e6e61efa-4] Decoded [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 11:45:41 - Creando un nuevo cliente: Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante Alvarez, email=dante.code@gmail.com, phoneNumber=951258654, customerType=PERSONALVIP)
+2024-12-31 11:45:41 - [e6e61efa-4] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 11:45:41 - [e6e61efa-4] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 11:45:41 - [e6e61efa-4] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 11:45:41 - [e6e61efa-4] Completed 201 CREATED
+2024-12-31 11:45:49 - [e6e61efa-5] HTTP GET "/v1/customers"
+2024-12-31 11:45:49 - [e6e61efa-5] Mapped to com.example.bank_customer.controller.CustomerController#getAllCustomer()
+2024-12-31 11:45:49 - Obteniendo todos los clientes
+2024-12-31 11:45:49 - [e6e61efa-5] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 11:45:49 - [e6e61efa-5] 0..N [com.example.bank_customer.domain.Customer]
+2024-12-31 11:45:49 - [e6e61efa-5] Encoding [Customer(id=6768834f149a361b1f471972, documentNumber=73474412, companyName=Auditores XD S.A.C, name= (truncated)...]
+2024-12-31 11:45:49 - [e6e61efa-5] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 11:45:49 - [e6e61efa-5] Completed 200 OK
+2024-12-31 11:46:48 - [e6e61efa-6] HTTP POST "/v1/customers"
+2024-12-31 11:46:48 - [e6e61efa-6] Mapped to com.example.bank_customer.controller.CustomerController#createCustomer(Customer)
+2024-12-31 11:46:48 - [e6e61efa-6] Content-Type:application/json
+2024-12-31 11:46:48 - [e6e61efa-6] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 11:46:48 - [e6e61efa-6] Decoded [Customer(id=null, documentNumber=70002500, companyName=Sergio Jhilar, name=Sergio Jhilmar, email=jmr (truncated)...]
+2024-12-31 11:46:48 - Creando un nuevo cliente: Customer(id=null, documentNumber=70002500, companyName=Sergio Jhilar, name=Sergio Jhilmar, email=jmr.code@gmail.com, phoneNumber=951258654, customerType=PERSONAL)
+2024-12-31 11:46:48 - [e6e61efa-6] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 11:46:48 - [e6e61efa-6] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 11:46:48 - [e6e61efa-6] Encoding [Customer(id=67741ff83af72a7e3c5edeb9, documentNumber=70002500, companyName=Sergio Jhilar, name=Sergi (truncated)...]
+2024-12-31 11:46:48 - [e6e61efa-6] Completed 201 CREATED
+2024-12-31 11:46:52 - [e6e61efa-7] HTTP GET "/v1/customers"
+2024-12-31 11:46:52 - [e6e61efa-7] Mapped to com.example.bank_customer.controller.CustomerController#getAllCustomer()
+2024-12-31 11:46:52 - Obteniendo todos los clientes
+2024-12-31 11:46:52 - [e6e61efa-7] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 11:46:52 - [e6e61efa-7] 0..N [com.example.bank_customer.domain.Customer]
+2024-12-31 11:46:52 - [e6e61efa-7] Encoding [Customer(id=6768834f149a361b1f471972, documentNumber=73474412, companyName=Auditores XD S.A.C, name= (truncated)...]
+2024-12-31 11:46:52 - [e6e61efa-7] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 11:46:52 - [e6e61efa-7] Encoding [Customer(id=67741ff83af72a7e3c5edeb9, documentNumber=70002500, companyName=Sergio Jhilar, name=Sergi (truncated)...]
+2024-12-31 11:46:52 - [e6e61efa-7] Completed 200 OK
+2024-12-31 11:48:50 - [06be5335-8] HTTP POST "/v1/customers"
+2024-12-31 11:48:50 - [06be5335-8] Mapped to com.example.bank_customer.controller.CustomerController#createCustomer(Customer)
+2024-12-31 11:48:50 - [06be5335-8] Content-Type:application/json
+2024-12-31 11:48:50 - [06be5335-8] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 11:48:50 - [06be5335-8] Decoded [Customer(id=null, documentNumber=10203040501, companyName=Soluciones tecnologicas, name=Bryan Sotoma (truncated)...]
+2024-12-31 11:48:50 - Creando un nuevo cliente: Customer(id=null, documentNumber=10203040501, companyName=Soluciones tecnologicas, name=Bryan Sotomayor, email=bsoto@soluciones.com, phoneNumber=951258654, customerType=EMPRESARIALMYPE)
+2024-12-31 11:48:50 - [06be5335-8] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 11:48:50 - [06be5335-8] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 11:48:50 - [06be5335-8] Encoding [Customer(id=677420723af72a7e3c5edeba, documentNumber=10203040501, companyName=Soluciones tecnologica (truncated)...]
+2024-12-31 11:48:50 - [06be5335-8] Completed 201 CREATED
+2024-12-31 11:48:55 - [06be5335-9] HTTP GET "/v1/customers"
+2024-12-31 11:48:55 - [06be5335-9] Mapped to com.example.bank_customer.controller.CustomerController#getAllCustomer()
+2024-12-31 11:48:55 - Obteniendo todos los clientes
+2024-12-31 11:48:55 - [06be5335-9] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 11:48:55 - [06be5335-9] 0..N [com.example.bank_customer.domain.Customer]
+2024-12-31 11:48:55 - [06be5335-9] Encoding [Customer(id=6768834f149a361b1f471972, documentNumber=73474412, companyName=Auditores XD S.A.C, name= (truncated)...]
+2024-12-31 11:48:55 - [06be5335-9] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 11:48:55 - [06be5335-9] Encoding [Customer(id=67741ff83af72a7e3c5edeb9, documentNumber=70002500, companyName=Sergio Jhilar, name=Sergi (truncated)...]
+2024-12-31 11:48:55 - [06be5335-9] Encoding [Customer(id=677420723af72a7e3c5edeba, documentNumber=10203040501, companyName=Soluciones tecnologica (truncated)...]
+2024-12-31 11:48:55 - [06be5335-9] Completed 200 OK
+2024-12-31 11:49:45 - [06be5335-10] HTTP PUT "/v1/customers/6768834f149a361b1f471972"
+2024-12-31 11:49:45 - [06be5335-10] Mapped to com.example.bank_customer.controller.CustomerController#updateCustomer(String, Customer)
+2024-12-31 11:49:45 - [06be5335-10] Content-Type:application/json
+2024-12-31 11:49:45 - [06be5335-10] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 11:49:45 - [06be5335-10] Decoded [Customer(id=null, documentNumber=20734744120, companyName=Auditores XD S.A.C, name=Jhamile, email=jh (truncated)...]
+2024-12-31 11:49:45 - Actualiando cliente por Id: 6768834f149a361b1f471972
+2024-12-31 11:49:46 - [06be5335-10] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 11:49:46 - [06be5335-10] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 11:49:46 - [06be5335-10] Encoding [Customer(id=6768834f149a361b1f471972, documentNumber=20734744120, companyName=Auditores XD S.A.C, na (truncated)...]
+2024-12-31 11:49:46 - [06be5335-10] Completed 200 OK
+2024-12-31 11:49:51 - [06be5335-11] HTTP GET "/v1/customers"
+2024-12-31 11:49:51 - [06be5335-11] Mapped to com.example.bank_customer.controller.CustomerController#getAllCustomer()
+2024-12-31 11:49:51 - Obteniendo todos los clientes
+2024-12-31 11:49:51 - [06be5335-11] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 11:49:51 - [06be5335-11] 0..N [com.example.bank_customer.domain.Customer]
+2024-12-31 11:49:51 - [06be5335-11] Encoding [Customer(id=6768834f149a361b1f471972, documentNumber=20734744120, companyName=Auditores XD S.A.C, na (truncated)...]
+2024-12-31 11:49:51 - [06be5335-11] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 11:49:51 - [06be5335-11] Encoding [Customer(id=67741ff83af72a7e3c5edeb9, documentNumber=70002500, companyName=Sergio Jhilar, name=Sergi (truncated)...]
+2024-12-31 11:49:51 - [06be5335-11] Encoding [Customer(id=677420723af72a7e3c5edeba, documentNumber=10203040501, companyName=Soluciones tecnologica (truncated)...]
+2024-12-31 11:49:51 - [06be5335-11] Completed 200 OK
+2024-12-31 12:01:39 - [5532fa0c-12] HTTP GET "/v1/customers/6768834f149a361b1f471972"
+2024-12-31 12:01:40 - [5532fa0c-12] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 12:01:40 - Obteniendo cliente por Id: 6768834f149a361b1f471972
+2024-12-31 12:01:40 - [5532fa0c-12] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 12:01:40 - [5532fa0c-12] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 12:01:40 - [5532fa0c-12] Encoding [Customer(id=6768834f149a361b1f471972, documentNumber=20734744120, companyName=Auditores XD S.A.C, na (truncated)...]
+2024-12-31 12:01:40 - [5532fa0c-12] Completed 200 OK
+2024-12-31 12:01:55 - [5532fa0c-13] HTTP GET "/v1/customers/6768834f149a361b1f471972"
+2024-12-31 12:01:55 - [5532fa0c-13] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 12:01:55 - Obteniendo cliente por Id: 6768834f149a361b1f471972
+2024-12-31 12:01:55 - [5532fa0c-13] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 12:01:55 - [5532fa0c-13] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 12:01:55 - [5532fa0c-13] Encoding [Customer(id=6768834f149a361b1f471972, documentNumber=20734744120, companyName=Auditores XD S.A.C, na (truncated)...]
+2024-12-31 12:01:55 - [5532fa0c-13] Completed 200 OK
+2024-12-31 12:02:11 - [5532fa0c-14] HTTP GET "/v1/customers/6768834f149a361b1f471972"
+2024-12-31 12:02:11 - [5532fa0c-14] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 12:02:11 - Obteniendo cliente por Id: 6768834f149a361b1f471972
+2024-12-31 12:02:11 - [5532fa0c-14] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 12:02:11 - [5532fa0c-14] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 12:02:11 - [5532fa0c-14] Encoding [Customer(id=6768834f149a361b1f471972, documentNumber=20734744120, companyName=Auditores XD S.A.C, na (truncated)...]
+2024-12-31 12:02:11 - [5532fa0c-14] Completed 200 OK
+2024-12-31 12:02:22 - [5532fa0c-15] HTTP GET "/v1/customers/6768834f149a361b1f471972"
+2024-12-31 12:02:22 - [5532fa0c-15] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 12:02:22 - Obteniendo cliente por Id: 6768834f149a361b1f471972
+2024-12-31 12:02:22 - [5532fa0c-15] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 12:02:22 - [5532fa0c-15] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 12:02:22 - [5532fa0c-15] Encoding [Customer(id=6768834f149a361b1f471972, documentNumber=20734744120, companyName=Auditores XD S.A.C, na (truncated)...]
+2024-12-31 12:02:22 - [5532fa0c-15] Completed 200 OK
+2024-12-31 12:55:21 - [5532fa0c-16] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 12:55:21 - [5532fa0c-16] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 12:55:21 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 12:55:21 - [5532fa0c-16] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 12:55:21 - [5532fa0c-16] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 12:55:21 - [5532fa0c-16] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 12:55:21 - [5532fa0c-16] Completed 200 OK
+2024-12-31 12:55:36 - [5532fa0c-17] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 12:55:36 - [5532fa0c-17] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 12:55:36 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 12:55:36 - [5532fa0c-17] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 12:55:36 - [5532fa0c-17] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 12:55:36 - [5532fa0c-17] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 12:55:36 - [5532fa0c-17] Completed 200 OK
+2024-12-31 12:55:43 - [5532fa0c-18] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 12:55:43 - [5532fa0c-18] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 12:55:43 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 12:55:43 - [5532fa0c-18] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 12:55:43 - [5532fa0c-18] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 12:55:43 - [5532fa0c-18] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 12:55:43 - [5532fa0c-18] Completed 200 OK
+2024-12-31 12:56:20 - [5532fa0c-19] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 12:56:20 - [5532fa0c-19] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 12:56:20 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 12:56:20 - [5532fa0c-19] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 12:56:20 - [5532fa0c-19] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 12:56:20 - [5532fa0c-19] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 12:56:20 - [5532fa0c-19] Completed 200 OK
+2024-12-31 13:44:58 - [651c7cb5-20] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 13:44:58 - [651c7cb5-20] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 13:44:58 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 13:44:58 - [651c7cb5-20] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 13:44:58 - [651c7cb5-20] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 13:44:58 - [651c7cb5-20] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 13:44:58 - [651c7cb5-20] Completed 200 OK
+2024-12-31 13:45:13 - [651c7cb5-21] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 13:45:13 - [651c7cb5-21] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 13:45:13 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 13:45:13 - [651c7cb5-21] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 13:45:13 - [651c7cb5-21] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 13:45:13 - [651c7cb5-21] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 13:45:13 - [651c7cb5-21] Completed 200 OK
+2024-12-31 13:50:03 - [f8dcacac-22] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 13:50:03 - [f8dcacac-22] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 13:50:03 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 13:50:03 - [f8dcacac-22] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 13:50:03 - [f8dcacac-22] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 13:50:03 - [f8dcacac-22] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 13:50:03 - [f8dcacac-22] Completed 200 OK
+2024-12-31 13:50:09 - [651c7cb5-23] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 13:50:09 - [651c7cb5-23] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 13:50:09 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 13:50:09 - [651c7cb5-23] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 13:50:09 - [651c7cb5-23] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 13:50:09 - [651c7cb5-23] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 13:50:09 - [651c7cb5-23] Completed 200 OK
+2024-12-31 13:50:57 - [651c7cb5-24] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 13:50:57 - [651c7cb5-24] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 13:50:57 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 13:50:57 - [651c7cb5-24] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 13:50:57 - [651c7cb5-24] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 13:50:57 - [651c7cb5-24] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 13:50:57 - [651c7cb5-24] Completed 200 OK
+2024-12-31 13:52:11 - [e36b7522-25] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 13:52:11 - [e36b7522-25] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 13:52:11 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 13:52:11 - [e36b7522-25] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 13:52:11 - [e36b7522-25] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 13:52:11 - [e36b7522-25] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 13:52:11 - [e36b7522-25] Completed 200 OK
+2024-12-31 13:54:41 - [59a020a1-26] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 13:54:41 - [59a020a1-26] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 13:54:41 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 13:54:41 - [59a020a1-26] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 13:54:41 - [59a020a1-26] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 13:54:41 - [59a020a1-26] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 13:54:41 - [59a020a1-26] Completed 200 OK
+2024-12-31 13:57:21 - [59a020a1-27] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 13:57:21 - [59a020a1-27] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 13:57:21 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 13:57:21 - [59a020a1-27] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 13:57:21 - [59a020a1-27] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 13:57:21 - [59a020a1-27] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 13:57:21 - [59a020a1-27] Completed 200 OK
+2024-12-31 13:57:25 - [59a020a1-28] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 13:57:25 - [59a020a1-28] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 13:57:25 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 13:57:25 - [59a020a1-28] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 13:57:25 - [59a020a1-28] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 13:57:25 - [59a020a1-28] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 13:57:25 - [59a020a1-28] Completed 200 OK
+2024-12-31 13:57:32 - [59a020a1-29] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 13:57:32 - [59a020a1-29] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 13:57:32 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 13:57:32 - [59a020a1-29] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 13:57:32 - [59a020a1-29] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 13:57:32 - [59a020a1-29] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 13:57:32 - [59a020a1-29] Completed 200 OK
+2024-12-31 13:57:38 - [59a020a1-30] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 13:57:38 - [59a020a1-30] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 13:57:38 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 13:57:38 - [59a020a1-30] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 13:57:38 - [59a020a1-30] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 13:57:38 - [59a020a1-30] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 13:57:38 - [59a020a1-30] Completed 200 OK
+2024-12-31 14:00:54 - [b41799db-31] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 14:00:54 - [b41799db-31] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 14:00:54 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 14:00:54 - [b41799db-31] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 14:00:54 - [b41799db-31] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 14:00:54 - [b41799db-31] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 14:00:54 - [b41799db-31] Completed 200 OK
+2024-12-31 14:03:34 - [064f684b-32] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 14:03:34 - [064f684b-32] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 14:03:34 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 14:03:34 - [064f684b-32] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 14:03:34 - [064f684b-32] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 14:03:34 - [064f684b-32] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 14:03:34 - [064f684b-32] Completed 200 OK
+2024-12-31 14:04:02 - [11118526-33] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 14:04:02 - [11118526-33] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 14:04:02 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 14:04:02 - [11118526-33] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 14:04:02 - [11118526-33] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 14:04:02 - [11118526-33] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 14:04:02 - [11118526-33] Completed 200 OK
+2024-12-31 14:04:19 - [11118526-34] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 14:04:19 - [11118526-34] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 14:04:19 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 14:04:19 - [11118526-34] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 14:04:19 - [11118526-34] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 14:04:19 - [11118526-34] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 14:04:19 - [11118526-34] Completed 200 OK
+2024-12-31 14:54:41 - [6d592135-35] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 14:54:41 - [6d592135-35] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 14:54:41 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 14:54:41 - [6d592135-35] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 14:54:41 - [6d592135-35] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 14:54:42 - [6d592135-35] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 14:54:42 - [6d592135-35] Completed 200 OK
+2024-12-31 14:55:18 - [6d592135-36] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 14:55:18 - [6d592135-36] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 14:55:18 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 14:55:18 - [6d592135-36] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 14:55:18 - [6d592135-36] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 14:55:18 - [6d592135-36] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 14:55:18 - [6d592135-36] Completed 200 OK
+2024-12-31 15:16:21 - [da51ed71-37] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 15:16:21 - [da51ed71-37] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 15:16:21 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 15:16:22 - [da51ed71-37] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 15:16:22 - [da51ed71-37] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 15:16:22 - [da51ed71-37] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 15:16:22 - [da51ed71-37] Completed 200 OK
+2024-12-31 15:26:51 - [da51ed71-38] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 15:26:51 - [da51ed71-38] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 15:26:51 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 15:26:51 - [da51ed71-38] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 15:26:51 - [da51ed71-38] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 15:26:51 - [da51ed71-38] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 15:26:51 - [da51ed71-38] Completed 200 OK
+2024-12-31 15:27:46 - [da51ed71-39] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 15:27:46 - [da51ed71-39] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 15:27:46 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 15:27:46 - [da51ed71-39] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 15:27:46 - [da51ed71-39] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 15:27:46 - [da51ed71-39] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 15:27:46 - [da51ed71-39] Completed 200 OK
+2024-12-31 15:32:46 - [da51ed71-40] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 15:32:46 - [da51ed71-40] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 15:32:46 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 15:32:46 - [da51ed71-40] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 15:32:46 - [da51ed71-40] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 15:32:46 - [da51ed71-40] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 15:32:46 - [da51ed71-40] Completed 200 OK
+2024-12-31 15:46:24 - [da51ed71-41] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 15:46:24 - [da51ed71-41] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 15:46:24 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 15:46:24 - [da51ed71-41] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 15:46:24 - [da51ed71-41] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 15:46:24 - [da51ed71-41] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 15:46:24 - [da51ed71-41] Completed 200 OK
+2024-12-31 15:51:10 - [aadbdda6-42] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 15:51:10 - [aadbdda6-42] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 15:51:11 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 15:51:11 - [aadbdda6-42] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 15:51:11 - [aadbdda6-42] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 15:51:11 - [aadbdda6-42] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 15:51:11 - [aadbdda6-42] Completed 200 OK
+2024-12-31 15:51:20 - [aadbdda6-43] HTTP GET "/v1/customers/676884033520112bcf078c6b"
+2024-12-31 15:51:20 - [aadbdda6-43] Mapped to com.example.bank_customer.controller.CustomerController#getCustomerById(String)
+2024-12-31 15:51:20 - Obteniendo cliente por Id: 676884033520112bcf078c6b
+2024-12-31 15:51:20 - [aadbdda6-43] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2024-12-31 15:51:20 - [aadbdda6-43] 0..1 [com.example.bank_customer.domain.Customer]
+2024-12-31 15:51:20 - [aadbdda6-43] Encoding [Customer(id=676884033520112bcf078c6b, documentNumber=75369541, companyName=Dante Alvarez, name=Dante (truncated)...]
+2024-12-31 15:51:20 - [aadbdda6-43] Completed 200 OK
+2024-12-31 18:24:35 - Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-31 18:24:36 - Graceful shutdown complete

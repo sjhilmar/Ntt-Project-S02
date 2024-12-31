@@ -102,7 +102,7 @@ public class TransactionService  implements ITransactionService {
                     creditProduct.setCreditBalance(newCreditBalance);
 
                     Map<String,BigDecimal> balanceUpdate = new HashMap<>();
-                    balanceUpdate.put("balance",newCreditBalance);
+                    balanceUpdate.put("creditBalance",newCreditBalance);
 
                     return webClientBuilder.build()
                             .patch()
@@ -115,14 +115,6 @@ public class TransactionService  implements ITransactionService {
 
     }
 
-    /*
-    *   AHORRO,
-    CORRIENTE,
-    PLAZOFIJO,
-    PERSONAL,
-    EMPRESARIAL,
-    TARJETACREDITO
-    * */
     @Override
     public Mono<Transaction> createTransaction(Transaction transaction) {
         transaction.setTransactionDate(LocalDateTime.now());

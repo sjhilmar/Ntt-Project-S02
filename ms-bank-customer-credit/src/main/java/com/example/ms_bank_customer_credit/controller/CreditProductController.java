@@ -33,6 +33,15 @@ public class CreditProductController {
                  .doOnError(e -> log.error("Error al consultar el credito con id: {}", id, e))
                  .onErrorResume(e -> Mono.error(new RuntimeException("Error al consultar el credito con id: " + id)));
     }
+
+    @GetMapping("/customer/{customerId}")
+    public Flux<CreditProduct> getCreditProductsByCustomerId(@PathVariable String customerId) {
+        log.info("Consultando creditos del cliente con CustomerId {}", customerId);
+        return creditProductService.findCreditProductByCustomerId(customerId)
+                .doOnError(e -> log.error("Error al consultar los creditos del cliente con id: {}", customerId, e))
+                .onErrorResume(e -> Flux.error(new RuntimeException("Error al consultar los creditos del cliente con id: " + customerId)));
+    }
+
     @PostMapping
     public Mono<ResponseEntity<CreditProduct>> createCreditProduct(@Valid @RequestBody CreditProduct creditProduct) {
          log.info("Creando credito {}", creditProduct);

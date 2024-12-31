@@ -35,7 +35,8 @@ public class CreditProductService implements ICreditProductService {
 
   @Override
   public Flux<CreditProduct> findCreditProductByCustomerId(String customerId) {
-    return creditProductRepository.findCreditProductByCustomerId(customerId);
+    return creditProductRepository.findCreditProductByCustomerId(customerId)
+            .switchIfEmpty(Mono.error(new RuntimeException("No se encontró tarjeta de crédito para el cliente: " + customerId)));
   }
 
   @Override
